@@ -19,7 +19,7 @@ public class CallBackVkApplication {
         System.out.println("___________________________");
         System.out.println("___________________________");
         System.out.println("___________________________");
-        String folderPath = "./";
+        String folderPath = "./app/";
 
         // Создайте объект File для представления этой папки
         File folder = new File(folderPath);
