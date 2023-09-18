@@ -38,7 +38,7 @@ public class VkCallbackController {
                 ratingService.addRatingMore(example);
             }
         } catch(NullPointerException e){
-            e.printStackTrace();
+
         }
         return "ok";
     }
