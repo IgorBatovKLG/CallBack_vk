@@ -19,11 +19,11 @@ public class VkCallbackController {
 
     @PostMapping("/callback")
     public String handleCallback(@RequestBody String requestBody) {
+        try {
         Gson gson = new Gson();
         RatingService ratingService= new RatingService();
         Example example = gson.fromJson(requestBody, Example.class);
         log.warn(example.getObject().getMessage().getText().toLowerCase());
-        try {
             switch (example.getObject().getMessage().getText().toLowerCase()) {
                 case ("+член"):
                 case ("подрочить"):
@@ -36,9 +36,7 @@ public class VkCallbackController {
             if(example.getObject().getMessage().getText().toLowerCase().contains("дрочка")){
                 ratingService.printRating();
             }
-
         } catch(NullPointerException e){
-
         }
         return "ok";
     }
