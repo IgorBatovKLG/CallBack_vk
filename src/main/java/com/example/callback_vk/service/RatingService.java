@@ -34,9 +34,11 @@ public class RatingService {
 
     public String printRating(){
         ApiVkService apiVkService = new ApiVkService();
+        apiVkService.vk("Заглушка на дрочку");
         RatingDaoJdbc ratingDaoJdbc = new RatingDaoJdbc();
         StringBuilder stringBuilder = new StringBuilder();
         List<PenisModel> allRaring = ratingDaoJdbc.getAllRaring();
+        apiVkService.vk("Лист пенисов " + allRaring.toString());
         stringBuilder.append("Размеры членов:\n");
         for (PenisModel penisModel : allRaring) {
             try {
