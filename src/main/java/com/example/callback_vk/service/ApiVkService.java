@@ -14,8 +14,8 @@ public class ApiVkService {
 
     public void vk(String message) {
         RandomIdDaoJdbc randomIdDaoJdbc = new RandomIdDaoJdbc();
-        int random_id = randomIdDaoJdbc.getRandomId();
-        randomIdDaoJdbc.updateRandomId(random_id+2);
+        //int random_id = randomIdDaoJdbc.getRandomId();
+        //randomIdDaoJdbc.updateRandomId(random_id+2);
 
         String accessToken = "vk1.a.xllEn-z5jugtfoemB9eugacR2y0E7J0R388Z6OpDBn7j7tyww62CsF_GCydkKuky-vmBHZmDahbno7qS0frMKJeIsV1LaxMbTnRGtPMbZXWJ_9EKDEi7FHZJ7qn6yWHBM9mfAFFDVx15-Gk7-0maL6lugPuO4VuW3ynzfDIhwEkns3jHIx5VHl6uOs-fXyamxYxhC7cpCqBRNxiTcIrNNQ"; // Замените на ваш токен доступа
         int peer_ids = 2000000002; // Замените на ID беседы, в которую вы хотите отправить сообщение
@@ -57,8 +57,8 @@ public class ApiVkService {
 
                 // Теперь у вас есть JSON-строка response.toString() с ответом от сервера VK API.
                 // Разберите эту JSON-строку, чтобы получить информацию о результате запроса.
-                System.out.println(random_id + " Ответ от сервера VK API: " + response.toString());
-                log.info("Отправлено" + random_id);
+                System.out.println(0 + " Ответ от сервера VK API: " + response.toString());
+                log.info("Отправлено" + 0);
             } else {
                 // Обработка ошибок
                 System.out.println("Ошибка при отправке запроса: " + responseCode);

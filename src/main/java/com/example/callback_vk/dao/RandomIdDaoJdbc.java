@@ -18,6 +18,16 @@ public class RandomIdDaoJdbc {
         }
     }
 
+    public void addRating() {
+        Connection connection = DBConnection.connection;
+        try (PreparedStatement statement = connection.prepareStatement("CREATE TABLE 'rating' ('id' INTEGER,'id_user' INTEGER,'rating' INTEGER)")) {
+
+            statement.executeUpdate();
+        } catch (Exception e){
+            e.getStackTrace();
+        }
+    }
+
     public void updateRandomId(int id){
         Connection connection = DBConnection.connection;
         try (PreparedStatement statement = connection.prepareStatement("update ids set random_id = ? where id = 1")) {
