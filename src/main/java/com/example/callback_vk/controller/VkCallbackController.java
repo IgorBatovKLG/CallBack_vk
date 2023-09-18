@@ -7,12 +7,14 @@ import com.example.callback_vk.models.user_info.Example_user;
 import com.example.callback_vk.service.ApiVkService;
 import com.example.callback_vk.service.RatingService;
 import com.google.gson.Gson;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
+@Slf4j
 public class VkCallbackController {
 
     @PostMapping("/callback")
@@ -20,6 +22,7 @@ public class VkCallbackController {
         Gson gson = new Gson();
         RatingService ratingService= new RatingService();
         Example example = gson.fromJson(requestBody, Example.class);
+        log.warn(example.getObject().getMessage().getText().toLowerCase());
         try {
             switch (example.getObject().getMessage().getText().toLowerCase()) {
                 case ("дрочка игоря"):
