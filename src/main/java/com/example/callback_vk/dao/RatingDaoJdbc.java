@@ -2,6 +2,7 @@ package com.example.callback_vk.dao;
 
 import com.example.callback_vk.DBConnection;
 import com.example.callback_vk.models.Penis.PenisModel;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Repository;
 
 import java.sql.Connection;
@@ -11,17 +12,17 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-
+@Slf4j
 public class RatingDaoJdbc {
 
     public void addRating(int user_id, double rating) {
+
         Connection connection = DBConnection.connection;
         try (PreparedStatement statement = connection.prepareStatement("INSERT INTO rating (id, id_user, rating) VALUES (?, ?, ?)")) {
             statement.setInt(2, user_id);
             statement.setDouble(3, rating);
             statement.executeUpdate();
         } catch (Exception e){
-            e.getStackTrace();
         }
     }
 
@@ -35,7 +36,6 @@ public class RatingDaoJdbc {
                 rating = resultSet.getDouble("rating");
             }
         } catch (Exception e){
-            e.getStackTrace();
             return 0;
         }
         return rating;
@@ -51,7 +51,6 @@ public class RatingDaoJdbc {
                         resultSet.getDouble("rating")));
             }
         } catch (Exception e){
-            e.getStackTrace();
             return rating;
         }
         return rating;

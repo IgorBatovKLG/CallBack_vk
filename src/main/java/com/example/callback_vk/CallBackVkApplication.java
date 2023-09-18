@@ -13,7 +13,6 @@ public class CallBackVkApplication {
 
     public static void main(String[] args) {
         ConfigurableApplicationContext run = SpringApplication.run(CallBackVkApplication.class, args);
-        run.getBean(RandomIdDaoJdbc.class).addRating();
 
     }
 
