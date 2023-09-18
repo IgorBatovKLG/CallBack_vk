@@ -1,17 +1,13 @@
 package com.example.callback_vk.service;
 
 import com.example.callback_vk.dao.RandomIdDaoJdbc;
-import com.example.callback_vk.dao.RatingDaoJdbc;
-import com.example.callback_vk.models.Penis.PenisModel;
-import com.example.callback_vk.models.user_info.Example;
+import com.example.callback_vk.models.user_info.Example_user;
 import com.google.gson.Gson;
 
 import java.io.*;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.nio.charset.StandardCharsets;
-import java.util.HashMap;
-import java.util.List;
 
 public class ApiVkService {
 
@@ -70,23 +66,9 @@ public class ApiVkService {
         }
     }
 
-    public String rating() {
-        RatingDaoJdbc ratingDaoJdbc = new RatingDaoJdbc();
-        StringBuilder stringBuilder = new StringBuilder();
-        List<PenisModel> allRaring = ratingDaoJdbc.getAllRaring();
-        stringBuilder.append("Размеры членов:\n");
-        for (PenisModel penisModel : allRaring) {
-            try {
 
-                Example userInfo = getUserInfo(penisModel.id_user);
-                stringBuilder.append(userInfo.getResponse().get(0).getFirstName()).append(" ").append(userInfo.getResponse().get(0).getLastName()).append(" - ").append(penisModel.rating).append(" см\n");
-            }catch (IndexOutOfBoundsException e){
-            }
-        }
-        return stringBuilder.toString();
-    }
 
-    public Example getUserInfo(Integer id) {
+    public Example_user getUserInfo(Integer id) {
         Gson gson = new Gson();
         try {
 
@@ -123,7 +105,7 @@ public class ApiVkService {
                 // Теперь у вас есть JSON-строка response.toString() с ответом от сервера VK API.
                 // Разберите эту JSON-строку, чтобы получить информацию о результате запроса.
 
-                return gson.fromJson(response.toString(), Example.class);
+                return gson.fromJson(response.toString(), Example_user.class);
 
             } else {
                 // Обработка ошибок
