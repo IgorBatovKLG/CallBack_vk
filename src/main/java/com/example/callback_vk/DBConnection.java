@@ -10,7 +10,7 @@ public class DBConnection {
 
     static {
         try {
-            connection = DriverManager.getConnection("jdbc:sqlite:/app/data/vk.db");
+            connection = DriverManager.getConnection("jdbc:sqlite:////data/vk.db");
         } catch (SQLException e) {
             System.out.println("Проблемы с подключением к базе данных");
             System.out.println(e.getMessage());
