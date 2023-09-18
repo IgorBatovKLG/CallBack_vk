@@ -1,9 +1,11 @@
 package com.example.callback_vk.controller;
 
 import com.example.callback_vk.dao.RatingDaoJdbc;
+import com.example.callback_vk.db;
 import com.example.callback_vk.models.message_new.Example;
 import com.example.callback_vk.service.ApiVkService;
 import com.google.gson.Gson;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -34,6 +36,15 @@ public class VkCallbackController {
             e.printStackTrace();
         }
 
-        return "a9457646"; // Верните "ok" в ответе ВКонтакте для подтверждения получения события
+        if (db.start){
+            db.start = false;
+            return "a9457646";
+        }
+
+        return "ok"; // Верните "ok" в ответе ВКонтакте для подтверждения получения события
+    }
+    @GetMapping("/")
+    public String index(){
+        return "ok";
     }
 }
