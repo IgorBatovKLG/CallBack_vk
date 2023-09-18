@@ -25,10 +25,6 @@ public class VkCallbackController {
         log.warn(example.getObject().getMessage().getText().toLowerCase());
         try {
             switch (example.getObject().getMessage().getText().toLowerCase()) {
-                case ("дрочка игоря"):
-                case ("дрочка"):
-                    ratingService.printRating();
-                    break;
                 case ("+член"):
                 case ("подрочить"):
                     ratingService.addRating(example);
@@ -37,6 +33,10 @@ public class VkCallbackController {
             if(example.getObject().getMessage().getText().toLowerCase().contains("увеличить член на")){
                 ratingService.addRatingMore(example);
             }
+            if(example.getObject().getMessage().getText().toLowerCase().contains("дрочка")){
+                ratingService.printRating();
+            }
+
         } catch(NullPointerException e){
 
         }
