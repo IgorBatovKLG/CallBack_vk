@@ -3,12 +3,13 @@ package com.example.callback_vk.service;
 import com.example.callback_vk.dao.RandomIdDaoJdbc;
 import com.example.callback_vk.models.user_info.Example_user;
 import com.google.gson.Gson;
+import lombok.extern.slf4j.Slf4j;
 
 import java.io.*;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.nio.charset.StandardCharsets;
-
+@Slf4j
 public class ApiVkService {
 
     public void vk(String message) {
@@ -57,12 +58,13 @@ public class ApiVkService {
                 // Теперь у вас есть JSON-строка response.toString() с ответом от сервера VK API.
                 // Разберите эту JSON-строку, чтобы получить информацию о результате запроса.
                 System.out.println(random_id + " Ответ от сервера VK API: " + response.toString());
+                log.info("Отправлено" + random_id);
             } else {
                 // Обработка ошибок
                 System.out.println("Ошибка при отправке запроса: " + responseCode);
             }
         } catch (IOException e) {
-            e.printStackTrace();
+            log.warn(e.getMessage());
         }
     }
 
