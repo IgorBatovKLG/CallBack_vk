@@ -3,9 +3,11 @@ meta:
   toolchain:
     name: maven
     version: 17
-
 build:
-  args: -Dserver.port=80 -Pproduction
-
+  artifacts:
+    target/*.jar: /
+  args: 'spring-boot:repackage '
 run:
-  jarName: bag-end.jar
+  jarName: CallBack_vk-0.0.1-SNAPSHOT.jar
+  persistenceMount: /data
+  containerPort: 80
