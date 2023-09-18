@@ -31,7 +31,7 @@ public class ApiVkService {
             String postData = "access_token=" + accessToken +
                     "&peer_ids=" + peer_ids +
                     "&message=" + message +
-                    "&random_id=" + random_id +
+                    "&random_id=" + 0 +
                     "&v=5.131";
 
             try (OutputStream os = connection.getOutputStream()) {
