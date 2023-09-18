@@ -10,7 +10,6 @@ import java.util.HashMap;
 public class CallBackVkApplication {
 
     public static void main(String[] args) {
-        System.out.println("Проект запустился");
         SpringApplication.run(CallBackVkApplication.class, args);
     }
 
