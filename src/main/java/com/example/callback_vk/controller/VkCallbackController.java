@@ -38,9 +38,6 @@ public class VkCallbackController {
             }
         } catch(NullPointerException e){
         }
-        if(db.start){
-            return "526b49bd";
-        }
         return "ok";
     }
     @GetMapping("/")
