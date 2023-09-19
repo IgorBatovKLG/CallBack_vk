@@ -23,7 +23,7 @@ public class VkCallbackController {
         Gson gson = new Gson();
         RatingService ratingService= new RatingService();
         Example example = gson.fromJson(requestBody, Example.class);
-        log.warn(example.getObject().getMessage().getText().toLowerCase());
+        log.warn(requestBody);
             switch (example.getObject().getMessage().getText().toLowerCase()) {
                 case ("+член"):
                 case ("подрочить"):
@@ -37,6 +37,9 @@ public class VkCallbackController {
                 ratingService.printRating();
             }
         } catch(NullPointerException e){
+        }
+        if(db.start){
+            return "526b49bd";
         }
         return "ok";
     }
